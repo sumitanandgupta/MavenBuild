@@ -13,6 +13,9 @@ on:
     branches: [ "master", "develop" ]
   pull_request:
     branches: [ "master" ]
+  #to add a manual trigger. This would provide a run workflow option 
+  #for manually running the workflow.
+  workflow_dispatch:
 
 jobs:
   build:
