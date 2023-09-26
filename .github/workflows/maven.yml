@@ -38,6 +38,7 @@ jobs:
         name: buildArtifact
         path: target/*.war #Path from where the files will be picked from the build machine for upload.
   deploy:
+    if: github.ref_name == 'master'
     needs: build
     runs-on: ubuntu-latest
     steps:
