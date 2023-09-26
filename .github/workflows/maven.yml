@@ -48,7 +48,8 @@ jobs:
       uses: docker/build-push-action@v5
       with:
           push: true
-          tags: user/app:latest  
+          context: .
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/planview:latest  
   deploy:
     if: github.ref_name == 'master'
     needs: build
@@ -58,6 +59,8 @@ jobs:
       with:
         name: buildArtifact
     - name: Deployment
-      run: echo "Executing Deploymeent"
+      run: 
+        echo "Executing Deploymeent"
+        docker push ${{ secrets.DOCKERHUB_USERNAME }}/planview:latest 
 
   
