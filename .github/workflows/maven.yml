@@ -61,6 +61,7 @@ jobs:
     - name: Deployment
       run: 
         echo "Executing Deploymeent"
+        docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/planview .
         docker push ${{ secrets.DOCKERHUB_USERNAME }}/planview:latest 
 
   
