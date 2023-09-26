@@ -35,7 +35,7 @@ jobs:
     - name: buildArtifact
       uses: actions/upload-artifact@v3
       with:
-        name: Upload Artifact
+        name: buildArtifact
         path: target/*.war #Path from where the files will be picked from the build machine for upload.
   deploy:
     needs: build
