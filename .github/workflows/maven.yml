@@ -36,11 +36,14 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: Upload Artifact
-        path: target/*.war
+        path: target/*.war #Path from where the files will be picked from the build machine for upload.
   deploy:
     needs: build
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/download-artifact@v3
+      with:
+        name: buildArtifact
     - name: Deployment
       run: echo "Executing Deploymeent"
 
