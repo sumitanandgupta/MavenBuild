@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "example" {
-  bucket = "sg_agithubactionsbucket"
+  bucket = "sgagithubactionsbucket"
 
   tags = {
     Name        = "mytestbucket"
