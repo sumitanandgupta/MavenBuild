@@ -60,7 +60,7 @@ jobs:
         rm -rf /tmp/Docker
         mkdir -p /tmp/Docker
        scp: |
-        'k8smanifests/' => /tmp/Docker/
+        'k8smanifest/' => /tmp/Docker/
        last_ssh: |
         cd /tmp/Docker/
         kubectl apply -f .
