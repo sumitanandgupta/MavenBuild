@@ -15,8 +15,8 @@ on:
     branches: [ "master" ]
   #to add a manual trigger. This would provide a run workflow option 
   #for manually running the workflow.
-  schedule:
-  - cron: '*/6 * * * *'
+  #schedule:
+  #- cron: '*/6 * * * *'
   workflow_dispatch:
 
 jobs:
