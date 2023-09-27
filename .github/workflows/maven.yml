@@ -62,6 +62,6 @@ jobs:
         'k8smanifest/' => /tmp/Docker/
        last_ssh: |
         cd /tmp/Docker/
-        kubectl apply -f .
+        sudo kubectl apply -f .
         
   
