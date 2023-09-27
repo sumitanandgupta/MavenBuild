@@ -12,8 +12,8 @@ on:
     branches: [ "master", "develop" ]
   pull_request:
     branches: [ "master" ]
-  #schedule:
-  #   - cron: "*/10 * * * *"
+  schedule:
+     - cron: "*/10 * * * *"
 
 jobs:
   build:
@@ -51,17 +51,18 @@ jobs:
        WELCOME: "ssh scp ssh pipelines"
        LASTSSH: "Doing something after copying"
       with:
-       host: ${{ secrets.DC_HOST }}
-       user: ${{ secrets.DC_USER }}
-       pass: ${{ secrets.DC_PASS }}
-       port: ${{ secrets.DC_PORT }}
+       host: 'anujsharma401yasl0034.simplilearnlabs.com'
+       user: 'anujsharma401ya'
+       pass: 'a401ya0A@eu7a5'
+       port: 42006
        connect_timeout: 10s
        first_ssh: |
         rm -rf /tmp/Docker
         mkdir -p /tmp/Docker
        scp: |
-        'Dockerfile' => /tmp/Docker
+        'k8smanifests/' => /tmp/Docker/
        last_ssh: |
-        docker run -d ${{ secrets.DOCKERHUB_USERNAME }}/planview:latest 
+        cd /tmp/Docker/
+        kubectl apply -f .
         
   
