@@ -12,8 +12,8 @@ on:
     branches: [ "master", "develop" ]
   pull_request:
     branches: [ "master" ]
-  #schedule:
-  #   - cron: "*/10 * * * *"
+  schedule:
+     - cron: "*/10 * * * *"
 
 jobs:
   build:
@@ -37,7 +37,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
        name: k8smanifestsArtifacts
-       path: k8smanifest/*
+       path: k8smanifests/*
     - name: Login to Docker Hub
       uses: docker/login-action@v3
       with:
@@ -79,6 +79,8 @@ jobs:
         cd /tmp/Docker/
         kubectl apply -f .
         
-          
-        
-  
+       #host: ${{ secrets.DC_HOST }}
+       #user: ${{ secrets.DC_USER }}
+       #pass: ${{ secrets.DC_PASS }}
+       #port: ${{ secrets.DC_PORT }}
+       
